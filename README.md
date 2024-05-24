@@ -1,7 +1,12 @@
 # easyDict
-This is a dictionary for Android by ContentProvider to query 
 
-# Usage
+easyDict是一个用于Android的字典应用程序，通过ContentProvider来进行查询。
+
+## 用法
+
+在你的`MainActivity.kt`文件中，你可以按照以下方式使用easyDict：
+
+```kotlin
 class MainActivity : AppCompatActivity() {
 
     companion object {
