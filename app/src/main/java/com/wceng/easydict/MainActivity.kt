@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.queryIdiom.setOnClickListener {
-            val uri = Uri.parse("content://$AUTHORITY/idiom/潸然泪下")
+            val uri = Uri.parse("content://$AUTHORITY/idiom/宾人")
             val cursor = contentResolver.query(uri, null, null, null, null)
             cursor?.let {
                 while (it.moveToNext()) {
@@ -31,17 +31,19 @@ class MainActivity : AppCompatActivity() {
                     val value2 = it.getString(1)
                     val value3 = it.getString(2)
                     val value4 = it.getString(3)
+                    val value5 = it.getString(4)
                     Log.d(TAG, "onCreate: $value1")
                     Log.d(TAG, "onCreate: $value2")
                     Log.d(TAG, "onCreate: $value3")
                     Log.d(TAG, "onCreate: $value4")
+                    Log.d(TAG, "onCreate: $value5")
                 }
                 cursor.close()
             }
         }
 
         binding.queryWord.setOnClickListener {
-            val uri = Uri.parse("content://$AUTHORITY/word/")
+            val uri = Uri.parse("content://$AUTHORITY/word/你")
             val cursor = contentResolver.query(uri, null, null, null, null)
             cursor?.let {
                 while (it.moveToNext()) {

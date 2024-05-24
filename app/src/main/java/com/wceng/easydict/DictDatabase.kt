@@ -32,18 +32,6 @@ abstract class DictDatabase : RoomDatabase() {
 
             instance = Room.databaseBuilder(context, DictDatabase::class.java, "dict.db")
                 .allowMainThreadQueries()
-                .addCallback(object : Callback() {
-                    override fun onCreate(db: SupportSQLiteDatabase) {
-                        thread {
-                            getInstance(context).runInTransaction {
-                                val idiomList = Loader.loadIdiom(context)
-                                val wordList = Loader.loadWord(context)
-                                getInstance(context).idiomDao.insert(idiomList)
-                                getInstance(context).wordDao.insert(wordList)
-                            }
-                        }
-                    }
-                })
                 .build()
             return instance!!
         }
